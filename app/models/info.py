@@ -46,6 +46,10 @@ class Information(models.Model):
     website = models.CharField(
         max_length=1024, default="", blank=True, null=True
     )
+    angel_link = models.CharField(
+        max_length=1024, default="", blank=True, null=True
+    )
+
     birth_year = models.CharField(
         max_length=1024, default="", blank=True, null=True
     )
