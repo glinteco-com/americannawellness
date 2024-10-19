@@ -1,8 +1,8 @@
-from app.models import Information
 from django.contrib import admin
 from import_export.admin import ImportExportModelAdmin
+
+from app.models import Information
 from app.resources import InformationResource
-import openpyxl
 
 
 class InformationAdmin(ImportExportModelAdmin):
@@ -33,6 +33,6 @@ class InformationAdmin(ImportExportModelAdmin):
         "job_tagline",
     ]
     resource_class = InformationResource
-    
-    
+
+
 admin.site.register(Information, InformationAdmin)

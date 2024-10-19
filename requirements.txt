@@ -13,5 +13,5 @@ celery>=5,<6
 flower>=1.2,<2
 django_celery_beat>=2,<3
 django_celery_results>=2,<3
-django-import-export
-datalib[xlsx]
+django-import-export==4.1.1
+openpyxl==3.1.5
