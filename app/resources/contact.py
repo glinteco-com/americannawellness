@@ -1,9 +1,9 @@
 from import_export import resources
 
-from app.models import Information
+from app.models import Contact
 
 
-class InformationResource(resources.ModelResource):
+class ContactResource(resources.ModelResource):
     def before_import(self, dataset, **kwargs):
         dataset.headers[0] = "email"
         dataset.headers[1] = ""
@@ -34,4 +34,6 @@ class InformationResource(resources.ModelResource):
         dataset.headers[26] = "job_tagline"
 
     class Meta:
-        model = Information
+        model = Contact
+        batch_size = 1000
+        use_bulk = True

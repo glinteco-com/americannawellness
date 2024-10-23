@@ -1,11 +1,11 @@
 from django.contrib import admin
 from import_export.admin import ImportExportModelAdmin
 
-from app.models import Information
-from app.resources import InformationResource
+from app.models import Contact
+from app.resources import ContactResource
 
 
-class InformationAdmin(ImportExportModelAdmin):
+class ContactAdmin(ImportExportModelAdmin):
     list_display = [
         "email",
         "full_name",
@@ -61,7 +61,7 @@ class InformationAdmin(ImportExportModelAdmin):
         "job_skills",
         "job_tagline",
     ]
-    resource_class = InformationResource
+    resource_class = ContactResource
 
 
-admin.site.register(Information, InformationAdmin)
+admin.site.register(Contact, ContactAdmin)

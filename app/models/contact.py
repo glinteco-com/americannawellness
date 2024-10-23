@@ -1,9 +1,12 @@
 from django.db import models
 
 
-class Information(models.Model):
-    email = models.EmailField(
-        max_length=1024, default="", blank=True, null=True
+class Contact(models.Model):
+    email = models.CharField(
+        max_length=1024,
+        default="",
+        blank=True,
+        null=True,
     )
     full_name = models.CharField(
         max_length=1024, default="", blank=True, null=True

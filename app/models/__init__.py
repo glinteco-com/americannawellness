@@ -1,5 +1,3 @@
-from .info import Information
+from .contact import Contact
 
-__all__ = [
-    "Information"
-]
+__all__ = ["Contact"]

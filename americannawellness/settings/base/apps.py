@@ -13,6 +13,7 @@ EXTERNAL_APPS = [
     "django_celery_beat",
     "django_celery_results",
     "import_export",
+    "import_export_celery",
 ]
 INTERNAL_APPS = ["app"]
 
