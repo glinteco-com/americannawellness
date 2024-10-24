@@ -1,9 +1,13 @@
 from import_export import resources
+from tqdm import tqdm
 
 from app.models import Contact
 
 
 class ContactResource(resources.ModelResource):
+    def __init__(self, **kwargs):
+        super().__init__(**kwargs)
+
     def before_import(self, dataset, **kwargs):
         dataset.append(dataset.headers)
         dataset.headers[0] = "email"
@@ -33,6 +37,11 @@ class ContactResource(resources.ModelResource):
         dataset.headers[24] = "job_categories"
         dataset.headers[25] = "job_skills"
         dataset.headers[26] = "job_tagline"
+        self.progress_bar = tqdm(total=len(dataset), desc="Import processing")
+
+    def before_import_row(self, row, **kwargs):
+        self.progress_bar.update(1)
+        return super().before_import_row(row, **kwargs)
 
     def skip_row(self, instance, original, row, import_validation_errors=None):
         if row["country"] != "United States":
@@ -41,5 +50,5 @@ class ContactResource(resources.ModelResource):
 
     class Meta:
         model = Contact
-        batch_size = 1000
+        batch_size = 500
         use_bulk = True

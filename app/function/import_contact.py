@@ -11,5 +11,6 @@ def import_data(file_path):
     resource = ContactResource()
     result = resource.import_data(dataset=dataset, dry_run=False)
     if result.has_errors():
-        print("Error")
+        print("Error", result.row_errors)
+        return
     print("Success")

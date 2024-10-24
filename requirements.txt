@@ -21,4 +21,4 @@ django-import-export-celery==1.7.1
 tablib==3.5.0
 
 django-elasticsearch-dsl==8.0
-
+tqdm==4.66.5
