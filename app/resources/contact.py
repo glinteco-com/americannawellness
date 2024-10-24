@@ -5,6 +5,7 @@ from app.models import Contact
 
 class ContactResource(resources.ModelResource):
     def before_import(self, dataset, **kwargs):
+        dataset.append(dataset.headers)
         dataset.headers[0] = "email"
         dataset.headers[1] = ""
         dataset.headers[2] = "first_name"
@@ -32,6 +33,11 @@ class ContactResource(resources.ModelResource):
         dataset.headers[24] = "job_categories"
         dataset.headers[25] = "job_skills"
         dataset.headers[26] = "job_tagline"
+
+    def skip_row(self, instance, original, row, import_validation_errors=None):
+        if row["country"] != "United States":
+            return True
+        return False
 
     class Meta:
         model = Contact

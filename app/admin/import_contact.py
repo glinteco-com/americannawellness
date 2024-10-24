@@ -16,7 +16,6 @@ from app.resources import ContactResource
 class ContactAdmin(ImportExportModelAdmin):
     list_display = [
         "email",
-        "full_name",
         "first_name",
         "last_name",
         "position",
@@ -49,6 +48,14 @@ class ContactAdmin(ImportExportModelAdmin):
         LastNameFilter,
         CompanyFilter,
         PhoneFilter,
+    ]
+    
+    search_fields = [
+        "email",
+        "first_name",
+        "last_name",
+        "company",
+        "phone",
     ]
 
     resource_class = ContactResource

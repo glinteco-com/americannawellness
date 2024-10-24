@@ -1,15 +1,15 @@
+import uuid
+
 from django.db import models
 
 
 class Contact(models.Model):
+    id = models.UUIDField(primary_key=True, default=uuid.uuid4)
     email = models.CharField(
         max_length=1024,
         default="",
         blank=True,
         null=True,
-    )
-    full_name = models.CharField(
-        max_length=1024, default="", blank=True, null=True
     )
     first_name = models.CharField(
         max_length=1024, default="", blank=True, null=True

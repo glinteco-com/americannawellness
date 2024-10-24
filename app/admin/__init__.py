@@ -8,7 +8,7 @@ from django_celery_beat.models import (
 )
 from django_celery_results.models import GroupResult, TaskResult
 
-from .contact import ContactAdmin
+from .import_contact import ContactAdmin
 
 __all__ = ["ContactAdmin"]
 
