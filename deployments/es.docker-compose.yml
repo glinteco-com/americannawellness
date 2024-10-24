@@ -1,0 +1,28 @@
+# This file is modified based on this file (https://github.com/elastic/elasticsearch/blob/8.15/docs/reference/setup/install/docker/docker-compose.yml) to provide a simple and easy way to run a single node ES
+
+
+version: "2.2"
+
+services:
+  es01:
+    image: docker.elastic.co/elasticsearch/elasticsearch:${STACK_VERSION}
+    volumes:
+      - esdata01:/usr/share/elasticsearch/data
+    ports:
+      - ${ES_PORT}:9200
+    environment:
+      - cluster.name=${CLUSTER_NAME}
+      - ELASTIC_PASSWORD=${ELASTIC_PASSWORD}
+      - bootstrap.memory_lock=true
+      - xpack.security.enabled=false
+      - xpack.security.transport.ssl.enabled=false
+      - discovery.type=single-node
+    mem_limit: ${MEM_LIMIT}
+    ulimits:
+      memlock:
+        soft: -1
+        hard: -1
+
+volumes:
+  esdata01:
+    driver: local
