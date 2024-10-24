@@ -49,14 +49,6 @@ class ContactAdmin(ImportExportModelAdmin):
         CompanyFilter,
         PhoneFilter,
     ]
-    
-    search_fields = [
-        "email",
-        "first_name",
-        "last_name",
-        "company",
-        "phone",
-    ]
 
     resource_class = ContactResource
 
