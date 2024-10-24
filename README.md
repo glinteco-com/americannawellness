@@ -98,3 +98,34 @@ ENVIRONMENT=local celery -A americannawellness.celery_tasks flower
 ```
 
 Then navigate to http://localhost:5555/
+
+## Install Docker
+
+- Follow the instructions in section "APT method" to install: https://docs.docker.com/engine/install/ubuntu/
+- Follow this doc for post works: https://docs.docker.com/engine/install/linux-postinstall/
+
+## Install ES
+
+- Create env file for es
+
+```
+cd deployments
+cp es.env.tpl es.env
+```
+
+- Update variables in the es.env file to match your need
+
+- To run es container
+
+```bash
+cd deployments
+docker compose --env-file=es.env -f es.docker-compose.yml up -d
+```
+
+- Test if the ES is started successfull
+
+```bash
+curl http://localhost:9200
+```
+
+if the response code is 200, and you can see data from ES, it means the ES is started properly.
