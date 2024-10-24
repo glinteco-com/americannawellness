@@ -13,16 +13,17 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 import configparser
 import os
 
-
 ENVIRONMENT = os.environ.get("ENVIRONMENT", "local")
 
 BASE_DIR = os.path.dirname(
-    os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+    os.path.dirname(
+        os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+    )
 )
 
 config_parser = configparser.ConfigParser()
 config_parser.read(
-    os.path.join(BASE_DIR, "settings", ".env")
+    os.path.join(BASE_DIR, "americannawellness", "settings", ".env")
 )
 
 # common settings

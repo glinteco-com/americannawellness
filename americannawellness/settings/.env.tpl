@@ -7,6 +7,7 @@ SENTRY_DSN=YOUR_SENTRY_DSN
 SENTRY_TRACES_SAMPLE_RATE=0.3
 SENTRY_SAMPLE_RATE=0.5
 CSRF_TRUSTED_ORIGINS=  # a list of origins seperated by commas
+
 [celery]
 BROKER_URL=redis://localhost:6379/0
 TASK_ALWAYS_EAGER=True
@@ -16,3 +17,8 @@ TASK_EAGER_PROPAGATES=True
 URL=redis://localhost:6379/0
 PREFIX=
 TIMEOUT=2592000
+
+[es]
+HOST=http://localhost:9200
+DSL_AUTOSYNC=True
+DSL_AUTO_REFRESH=True

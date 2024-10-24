@@ -14,6 +14,7 @@ EXTERNAL_APPS = [
     "django_celery_results",
     "import_export",
     "import_export_celery",
+    "django_elasticsearch_dsl",
 ]
 INTERNAL_APPS = ["app"]
 

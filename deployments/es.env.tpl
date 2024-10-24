@@ -1,6 +1,9 @@
 # Password for the 'elastic' user (at least 6 characters)
 ELASTIC_PASSWORD=
 
+# Password for the 'kibana_system' user (at least 6 characters)
+KIBANA_PASSWORD=
+
 # Version of Elastic products
 STACK_VERSION=8.15.3
 
@@ -9,6 +12,9 @@ CLUSTER_NAME=docker-cluster
 
 # Port to expose Elasticsearch HTTP API to the host
 ES_PORT=127.0.0.1:9200
+
+# Port to expose Kibana to the host
+KIBANA_PORT=5601
 
 # Increase or decrease based on the available host memory (in bytes)
 MEM_LIMIT=1073741824

@@ -125,7 +125,14 @@ docker compose --env-file=es.env -f es.docker-compose.yml up -d
 - Test if the ES is started successfull
 
 ```bash
-curl http://localhost:9200
+curl -I http://localhost:9200
 ```
 
-if the response code is 200, and you can see data from ES, it means the ES is started properly.
+if the response code is 200, it means the ES is started properly.
+
+- To run Kibana just use es.docker-compose.dev.yml instead. The command to start ES should be like this:
+
+```bash
+cd deployments
+docker compose --env-file=es.env -f es.docker-compose.dev.yml up -d
+```
